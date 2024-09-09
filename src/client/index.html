@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WASM Add</title>
+    <script src="wasm/vosmm.js"></script>
+</head>
+<body>
+    <h1>WASM Addition</h1>
+    <script>
+        function onWasmLoaded() {
+            const result = Module.ccall('add', // name of C function
+                'number', // return type
+                ['number', 'number'], // argument types
+                [5, 3]); // arguments
+            document.body.innerHTML += `<p>5 + 3 = ${result}</p>`;
+        }
+        Module.onRuntimeInitialized = onWasmLoaded;
+    </script>
+</body>
+</html>
