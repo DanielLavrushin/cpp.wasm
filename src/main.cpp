@@ -1,10 +1,12 @@
-#include <emscripten.h>
 #include <iostream>
+#include <emscripten.h>
+
+using std::cin;
 using std::cout;
 
 int main()
 {
-    auto txt = "Hello, World!";
+    auto txt = "VideoOS Merge Media WASM Module Loaded";
     cout << txt << "\n";
     return 0;
 }
