@@ -1,5 +1,5 @@
 CC=emcc
-CFLAGS=-s WASM=1 -s "EXPORTED_RUNTIME_METHODS=['ccall','cwrap']"
+CFLAGS=-s WASM=1 -s NO_EXIT_RUNTIME=1 -s  "EXPORTED_RUNTIME_METHODS=['ccall','cwrap']" -s "EXPORTED_FUNCTIONS=['_malloc', '_free', '_main']" -g --no-entry --no-heap-copy -s "ALLOW_MEMORY_GROWTH=1"
 TARGET=./build/wasm/vosmm.js
 SOURCE=./src/main.cpp
 

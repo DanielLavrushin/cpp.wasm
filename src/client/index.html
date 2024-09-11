@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>WASM Add</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MM.WASM Module</title>
     <script src="wasm/vosmm.js"></script>
-</head>
-<body>
-    <h1>WASM Addition2222</h1>
     <script>
-        function onWasmLoaded() {
-            const result = Module.ccall('add', // name of C function
-                'number', // return type
-                ['number', 'number'], // argument types
-                [5, 3]); // arguments
-            document.body.innerHTML += `<p>5 + 3 = ${result}</p>`;
-        }
-        Module.onRuntimeInitialized = onWasmLoaded;
+      Module.onRuntimeInitialized = function () {
+        document.querySelectorAll(".wasm-control").forEach((element) => {
+          element.disabled = false;
+        });
+        Module._main();
+      };
     </script>
-</body>
+  </head>
+  <body>
+    <h1>MM.WASM Module</h1>
+    <input class="wasm-control" type="file" id="fileInput" disabled />
+    <button class="wasm-control" onclick="loadFile()" disabled>
+      Load File
+    </button>
+    <script src="js/main.js"></script>
+  </body>
 </html>
