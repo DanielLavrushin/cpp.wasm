@@ -1,16 +1,29 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "WSL",
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/emsdk/upstream/emscripten/system/include/**"
             ],
             "defines": [],
+            "compilerPath": "${workspaceFolder}/emsdk/upstream/emscripten/emcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        },
+        {
+            "name": "Windows",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/emsdk/upstream/emscripten/system/include/**",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.19041.0/ucrt/**"
+            ],
+            "defines": [],
             "compilerPath": "${workspaceFolder}/emsdk/upstream/emscripten/emcc.bat",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "${default}"
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4
