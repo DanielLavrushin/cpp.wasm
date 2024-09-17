@@ -4,14 +4,14 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "./../emsdk/upstream/emscripten/system/include/**"
+                "${workspaceFolder}/emsdk/upstream/emscripten/system/include/**"
             ],
             "defines": [],
-            "compilerPath": "c:/projects/emsdk/upstream/emscripten/emcc.bat",
+            "compilerPath": "${workspaceFolder}/emsdk/upstream/emscripten/emcc.bat",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-clang-x64"
+            "intelliSenseMode": "${default}"
         }
     ],
     "version": 4
-} 
+}
