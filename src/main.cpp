@@ -1,9 +1,9 @@
+#include <algorithm>
 #include <emscripten.h>
 #include <iostream>
 #include <string>
 #include <vector>
 
-// FFmpeg headers
 extern "C" {
 #include <libavformat/avformat.h>
 }
@@ -13,17 +13,27 @@ using namespace std;
 int main() {
   auto txt = "VideoOS Merge Media WASM Module Loaded";
   cout << txt << "\n";
-  string str = "lalala";
+
   vector<string> arr;
 
-  arr.push_back("janna");
+  arr.push_back("Emma");
+  arr.push_back("Emma");
+  arr.push_back("Emma");
+  arr.push_back("Olivia");
+  arr.push_back("Ava");
+  arr.push_back("Isabella");
+  arr.push_back("Sophia");
 
-  return 0;
+  sort(arr.begin(), arr.end());
+  int nms = count(arr.begin(), arr.end(), "Emma");
+  for (string name : arr) {
+    cout << name << "\n";
+  }
+  cout << "Number of Emmas: " << nms << "\n";
 }
 
 extern "C" {
 
-// Your WebAssembly exposed function to process the file
 int EMSCRIPTEN_KEEPALIVE processFile(unsigned char *data, int size) {
   // Initialize FFmpeg format context
   AVFormatContext *fmt_ctx = avformat_alloc_context();

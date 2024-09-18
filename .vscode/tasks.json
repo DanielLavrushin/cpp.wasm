@@ -4,7 +4,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "make",
+            "command": "sudo make",
             "args": [],
             "group": {
                 "kind": "build",
@@ -22,6 +22,18 @@
                 "isDefault": true
             },
             "problemMatcher": []
+        },
+        {
+            "label": "StartServer",
+            "type": "process",
+            "command": "${input:startServer}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "startServer",
+            "type": "command",
+            "command": "livePreview.runServerLoggingTask"
         }
     ]
 }

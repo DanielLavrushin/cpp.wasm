@@ -1,19 +1,21 @@
 {
-    "version": "2.0.0",
-    "configurations": [
-      {
-        "name": "Launch Chrome with WebAssembly",
-        "type": "chrome",
-        "request": "launch",
-        "url": "http://localhost:3000/build/index.html", 
-        "webRoot": "${workspaceFolder}",
-        "sourceMaps": true,
-        "trace": true,
-        "sourceMapPathOverrides": {
-          "webpack:///./~/*": "${webRoot}/node_modules/*",
-          "webpack:///./*": "${webRoot}/*",
-          "webpack:///*": "*"
-        }
+  "version": "2.0.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome with WebAssembly",
+      "preLaunchTask": "StartServer",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000/build/index.html",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "trace": true,
+      "sourceMapPathOverrides": {
+        "webpack:///./~/*": "${webRoot}/node_modules/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///*": "*",
+        "*/src/*": "${workspaceFolder}/src/*"
       }
-    ]
-  }
+    }
+  ]
+}
