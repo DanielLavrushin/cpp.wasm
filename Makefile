@@ -4,7 +4,7 @@ SOURCE = ./src/main.cpp
 TARGET = $(BUILD_DIR)/vosmm.js
 
 # FFmpeg directories
-FFMPEG_DIR = ./ffmpeg/ffmpeg
+FFMPEG_DIR = ./ffmpeg
 FFMPEG_BUILD_DIR = $(FFMPEG_DIR)/build
 FFMPEG_INCLUDE_DIR = $(FFMPEG_BUILD_DIR)/include
 FFMPEG_LIB_DIR = $(FFMPEG_BUILD_DIR)/lib
@@ -72,10 +72,11 @@ clean:
 	$(call RM,./build)
 
 # FFmpeg configuration target
-ffmpeg-configure:
+ffmpeg-build:
+	mkdir -p $(FFMPEG_BUILD_DIR)  && \
 	cd $(FFMPEG_DIR) && \
 	emconfigure ./configure \
-		--prefix=$(FFMPEG_BUILD_DIR) \
+		--prefix=$(abspath $(FFMPEG_BUILD_DIR)) \
 		--cc="emcc" \
 		--ar="emar" \
 		--ranlib="emranlib" \
@@ -88,14 +89,11 @@ ffmpeg-configure:
 		--disable-doc \
 		--disable-network \
 		--disable-everything \
+		--disable-doc  \
 		--enable-decoder=h264 \
 		--enable-parser=h264 \
 		--enable-demuxer=mov \
 		--enable-protocol=file \
-		--enable-small
-
-# FFmpeg build target
-ffmpeg-build: ffmpeg-configure
-	cd $(FFMPEG_DIR) && \
+		--enable-small && \
 	emmake make -j$(shell nproc) && \
 	emmake make install

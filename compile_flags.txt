@@ -1,0 +1,7 @@
+-std=c++17
+-I./emsdk/upstream/emscripten/cache/sysroot/include/c++/v1
+-I./emsdk/upstream/emscripten/cache/sysroot/include
+-I./ffmpeg/build/include
+-D__GLIBC_PREREQ(x,y)=0
+--target=wasm32-unknown-emscripten
+-nostdinc++
