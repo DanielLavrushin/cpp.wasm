@@ -10,6 +10,16 @@ extern "C" {
 
 using namespace std;
 
+class SomeClass {
+
+private:
+  int balance;
+
+public:
+  SomeClass();
+  bool IsEmpty();
+};
+
 int main() {
   auto txt = "VideoOS Merge Media WASM Module Loaded";
   cout << txt << "\n";
